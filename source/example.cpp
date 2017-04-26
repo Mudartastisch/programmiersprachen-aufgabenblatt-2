@@ -2,6 +2,7 @@
 #include <GLFW/glfw3.h>
 #include <utility>
 #include <cmath>
+#include "vec2.hpp"
 
 
 int main(int argc, char* argv[])
