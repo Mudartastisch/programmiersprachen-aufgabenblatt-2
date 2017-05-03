@@ -17,7 +17,7 @@ TEST_CASE()
 	Vec2 vec_seven_one{ 7.0,1.0 };
 	
 
-	//Operator+
+	//operator+
 	Vec2 vec_prove_one_zero{};
 	vec_prove_one_zero.operator+=(vec_one_zero);
 	REQUIRE(vec_prove_one_zero.x == 1.0); //Test 0+1=1
@@ -35,7 +35,7 @@ TEST_CASE()
 	REQUIRE(vec_prove_two_two.y == 2.0); //Test 0+1+1=2
 
 
-	//Operator-
+	//operator-
 	Vec2 vec_prove_zero_zero{1.0,1.0};
 	vec_prove_zero_zero.operator-=(vec_one_one);
 	REQUIRE(vec_prove_zero_zero.x == 0.0); //Test 1-1=0
@@ -52,6 +52,36 @@ TEST_CASE()
 	vec_prove_one_one.operator+=(vec_one_one);
 	REQUIRE(vec_prove_one_one.x == 1.0); //Test 5-5+1=1
 	REQUIRE(vec_prove_one_one.y == 1.0); //Test 2-2+1=1
+
+	//operator*
+	Vec2 vec_prove_tenFive_threeFive{ 7.0,2.0 };
+	vec_prove_tenFive_threeFive.operator*=(1.5);
+	REQUIRE(vec_prove_tenFive_threeFive.x == 10.5); //Test 7*1.5=10.5
+	REQUIRE(vec_prove_tenFive_threeFive.y == 3.5); //Test 2*1.5=3.5
+
+	Vec2 vec_prove_nFive_nTwo{ 5.0,2.0 };
+	vec_prove_nFive_nTwo.operator*=(-1.0);
+	REQUIRE(vec_prove_nFive_nTwo.x == -5.0); //Test 5*-1=-5
+	REQUIRE(vec_prove_nFive_nTwo.y == -2.0); //Test 2*-1=-2
+
+	Vec2 vec_prove_fourOFive_sixSevenFive{ 3.0,5.0 }; 
+	vec_prove_fourOFive_sixSevenFive.operator*=(1.35);
+	REQUIRE(vec_prove_fourOFive_sixSevenFive.x == 4.05); //Test 3*1.35=4.05
+	REQUIRE(vec_prove_fourOFive_sixSevenFive.y == 6.75); //Test 5*1.35=6.75
+
+	//operator/
+	Vec2 vec_prove_five_zeroSix{ 25.0,3.0 };
+	vec_prove_five_zeroSix.operator/=(0.5);
+	REQUIRE(vec_prove_five_zeroSix.x == 5.0); //Test 25/5=5
+	REQUIRE(vec_prove_five_zeroSix.y == 0.6); //Test 3/6=0.6
+
+	Vec2 vec_prove_nOne_nineSix{ 5.0,48.0 };
+	vec_prove_nOne_nineSix.operator/=(-0.2);
+	REQUIRE(vec_prove_nOne_nineSix.x == -1.0); //Test 5*-0.2=-1
+	REQUIRE(vec_prove_nOne_nineSix.y == -9.6); //Test 48*-0.2=-9.6
+
+	Vec2 vec_prove_error_divZero{ 1.0,1.0 };
+	vec_prove_error_divZero.operator/=(0);
 }
 int main(int argc, char *argv[])
 {

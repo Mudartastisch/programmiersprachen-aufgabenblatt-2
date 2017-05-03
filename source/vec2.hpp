@@ -1,5 +1,6 @@
 #ifndef VEC2_HPP
 #define VEC2_HPP
+#include <iostream>
 // Vec2 class definition
 
 struct Vec2
@@ -16,7 +17,9 @@ struct Vec2
 	};
 
 	Vec2& operator +=(Vec2 const& v);
-	Vec2 & operator -=(Vec2 const & v);
+	Vec2& operator -=(Vec2 const& v);
+	Vec2& operator *=(float s);
+	Vec2 & operator /=(float s);
 };
 //Destruktor/Destructor ist eine Memberfunktion die verwendet wird um den, von dem Object belegten
 //Speicherplatz am Ende der Lebenszeit direkt wieder freizugeben
