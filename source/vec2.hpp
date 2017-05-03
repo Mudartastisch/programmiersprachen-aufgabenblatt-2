@@ -5,7 +5,7 @@
 struct Vec2
 {
 	float x;
-	float y;
+	float y;	
 	Vec2() {
 		x = 0.0f;
 		y = 0.0f;
@@ -14,7 +14,9 @@ struct Vec2
 		x = a;
 		y = b;
 	};
+
 	Vec2& operator +=(Vec2 const& v);
+	Vec2 & operator -=(Vec2 const & v);
 };
 //Destruktor/Destructor ist eine Memberfunktion die verwendet wird um den, von dem Object belegten
 //Speicherplatz am Ende der Lebenszeit direkt wieder freizugeben
