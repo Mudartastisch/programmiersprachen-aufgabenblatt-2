@@ -50,8 +50,8 @@ TEST_CASE()
 	Vec2 vec_prove_one_one{ 5.0,2.0 };
 	vec_prove_one_one.operator-=(vec_five_two);
 	vec_prove_one_one.operator+=(vec_one_one);
-	REQUIRE(vec_prove_zero_zero.x == 1.0); //Test 5-5+1=1
-	REQUIRE(vec_prove_zero_zero.y == 1.0); //Test 2-2+1=1
+	REQUIRE(vec_prove_one_one.x == 1.0); //Test 5-5+1=1
+	REQUIRE(vec_prove_one_one.y == 1.0); //Test 2-2+1=1
 }
 int main(int argc, char *argv[])
 {
