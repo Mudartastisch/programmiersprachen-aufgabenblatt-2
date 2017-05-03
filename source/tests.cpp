@@ -54,10 +54,10 @@ TEST_CASE()
 	REQUIRE(vec_prove_one_one.y == 1.0); //Test 2-2+1=1
 
 	//operator*
-	Vec2 vec_prove_tenFive_threeFive{ 7.0,2.0 };
+	Vec2 vec_prove_tenFive_threeFive{7.0,2.0};
 	vec_prove_tenFive_threeFive.operator*=(1.5);
 	REQUIRE(vec_prove_tenFive_threeFive.x == 10.5); //Test 7*1.5=10.5
-	REQUIRE(vec_prove_tenFive_threeFive.y == 3.5); //Test 2*1.5=3.5
+	REQUIRE(vec_prove_tenFive_threeFive.y == 3.0); //Test 2*1.5=3.0
 
 	Vec2 vec_prove_nFive_nTwo{ 5.0,2.0 };
 	vec_prove_nFive_nTwo.operator*=(-1.0);
@@ -82,6 +82,8 @@ TEST_CASE()
 
 	Vec2 vec_prove_error_divZero{ 1.0,1.0 };
 	vec_prove_error_divZero.operator/=(0);
+	REQUIRE(vec_prove_error_divZero.x == 1.0);
+	REQUIRE(vec_prove_error_divZero.y == 1.0);
 }
 int main(int argc, char *argv[])
 {
