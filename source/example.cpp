@@ -16,7 +16,7 @@ int main(int argc, char* argv[])
   Color black{ 0.0 };
   Circle test_circle(circle_center, 100.0f, black);
   while (!win.should_close()) {
-	//test_circle.draw(win);
+	test_circle.draw(win);
     if (win.get_key(GLFW_KEY_ESCAPE) == GLFW_PRESS) {
       win.close();
     }

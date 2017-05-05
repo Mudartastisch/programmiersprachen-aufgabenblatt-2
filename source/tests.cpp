@@ -39,6 +39,7 @@ Vec2 operator*(Vec2 const & v, Mat2 const & m) {
 };
 
 
+
 TEST_CASE()
 {
 	//Test Vektoren
@@ -184,6 +185,7 @@ TEST_CASE()
 	REQUIRE(Mat_110_140_90_115.c == 90.0f);
 	REQUIRE(Mat_110_140_90_115.d == 115.0f);
 
+	
 
 }
 
