@@ -30,7 +30,9 @@ Vec2 & Vec2::operator/=(float s)
 		std::cerr << "You can't devide by ZERO!";
 		return *this;
 	}
-	x -= x/s;
-	y -= y/s;
+	x = x/s;
+	y = y/s;
 	return *this;
 }
+
+

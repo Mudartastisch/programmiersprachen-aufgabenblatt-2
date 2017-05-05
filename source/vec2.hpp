@@ -15,11 +15,15 @@ struct Vec2
 		x = a;
 		y = b;
 	};
+	Vec2(Vec2& temp) {
+		x = temp.x;
+		y = temp.y;
+	};
 
 	Vec2& operator +=(Vec2 const& v);
 	Vec2& operator -=(Vec2 const& v);
 	Vec2& operator *=(float s);
-	Vec2 & operator /=(float s);
+	Vec2& operator /=(float s);
 };
 //Destruktor/Destructor ist eine Memberfunktion die verwendet wird um den, von dem Object belegten
 //Speicherplatz am Ende der Lebenszeit direkt wieder freizugeben
