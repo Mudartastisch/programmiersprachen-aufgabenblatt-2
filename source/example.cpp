@@ -3,13 +3,20 @@
 #include <utility>
 #include <cmath>
 #include "vec2.hpp"
+#include "circle.hpp"
+#include "rectangle.hpp"
+
+
 
 
 int main(int argc, char* argv[])
 {
   Window win{std::make_pair(800,800)};
-
+  Vec2 circle_center(400.0f, 400.0f);
+  Color black{ 0.0 };
+  Circle test_circle(circle_center, 100.0f, black);
   while (!win.should_close()) {
+	//test_circle.draw(win);
     if (win.get_key(GLFW_KEY_ESCAPE) == GLFW_PRESS) {
       win.close();
     }
@@ -36,17 +43,19 @@ int main(int argc, char* argv[])
     if (left_pressed) {
       win.draw_line(30, 30, // from
           m.first, m.second, // to
-          1.0,0.0,0.0);
+          1.0f,0.0f,0.0f);
     }
 
-    win.draw_line(0, m.second, 10, m.second, 0.0, 0.0, 0.0);
-    win.draw_line(win.window_size().second - 10, m.second, win.window_size().second, m.second, 0.0, 0.0, 0.0);
+    win.draw_line(0, m.second, 10, m.second, 0.0f, 0.0f, 0.0f);
+    win.draw_line(win.window_size().second - 10, m.second, win.window_size().second, m.second, 0.0f, 0.0f, 0.0f);
 
-    win.draw_line(m.first, 0, m.first, 10, 0.0, 0.0, 0.0);
-    win.draw_line(m.first, win.window_size().second - 10, m.first, win.window_size().second, 0.0, 0.0, 0.0);
+    win.draw_line(m.first, 0, m.first, 10, 0.0f, 0.0f, 0.0f);
+    win.draw_line(m.first, win.window_size().second - 10, m.first, win.window_size().second, 0.0f, 0.0f, 0.0f);
 
     std::string text = "mouse position: (" + std::to_string(m.first) + ", " + std::to_string(m.second) + ")";
     win.draw_text(10, 5, 35.0f, text);
+
+	
 
     win.update();
   }

@@ -1,5 +1,6 @@
 #include "vec2.hpp"
 #include "color.hpp"
+#include "window.hpp"
 class Rectangle{
 public:
 	Rectangle() {
@@ -31,7 +32,12 @@ public:
 	float circumference() {
 		return (2 * (lower_right.x - min_.x) + 2 * (upper_left.y - min_.y));
 	}
-
+	Window draw(Window canvas) {
+		canvas.draw_line(min_.x, min_.y, lower_right.x, lower_right.y, 0.0, 0.0, 0.0);
+		canvas.draw_line(min_.x, min_.y, upper_left.x, upper_left.y, 0.0, 0.0, 0.0);
+		canvas.draw_line(max_.x, max_.y, lower_right.x, lower_right.y, 0.0, 0.0, 0.0);
+		canvas.draw_line(max_.x, max_.y, upper_left.x, upper_left.y, 0.0, 0.0, 0.0);
+	}
 private:
 	Vec2 min_;
 	Vec2 max_;
