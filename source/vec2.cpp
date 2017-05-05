@@ -3,7 +3,7 @@
 
 
 
-Vec2 & Vec2::operator+=(Vec2 const& v)
+Vec2& Vec2::operator+=(Vec2 const& v)
 {
 	x += v.x;
 	y += v.y;
@@ -27,7 +27,7 @@ Vec2 & Vec2::operator*=(float s)
 Vec2 & Vec2::operator/=(float s)
 {
 	if (s == 0) {
-		std::cerr << "You can't devide by ZERO!";
+		std::cerr << "You can't devide by ZERO!" << "\n";
 		return *this;
 	}
 	x = x/s;

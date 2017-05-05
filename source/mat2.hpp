@@ -1,26 +1,30 @@
 #ifndef MAT2_HPP
 #define MAT2_HPP
 struct Mat2{
-	float m_0;
-	float m_1;
-	float n_0;
-	float n_1;
-	// Looks like m_0 m_1
-	//			  n_0 n_1
+	float a;
+	float b;
+	float c;
+	float d;
+	// Looks like a b
+	//			  c d
 	Mat2() {
-		m_0 = 1.0f;
-		m_1 = 0.0f;
-		n_0 = 0.0f;
-		n_1 = 1.0f;
+		a = 1.0f;
+		b = 0.0f;
+		c = 0.0f;
+		d = 1.0f;
 	};
-	Mat2(float a, float b, float c, float d) {
-		m_0 = a; 
-		m_1 = b;
-		n_0 = c;
-		n_1 = d;
+	Mat2(float top_left, float top_right, float lower_left, float lower_right) {
+		a = top_left;
+		b = top_right;
+		c = lower_left;
+		d = lower_right;
 	};
-	Mat2 & operator *=( Mat2 const & m);
+
+	Mat2& operator *=( Mat2 const & m);
+
+	
 
 };
 Mat2 operator *( Mat2 const & m1 , Mat2 const & m2 );
+Mat2 imitate(Mat2 const& temp);
 #endif // MAT2_HPP

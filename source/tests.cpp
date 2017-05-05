@@ -3,6 +3,7 @@
 #include <catch.hpp>
 #include "vec2.hpp"
 #include "mat2.hpp"
+#include "color.hpp"
 Vec2 operator+(Vec2 const& u, Vec2 const& v) {
 	Vec2 temp{ u.x + v.x,u.y + v.y };
 	return temp;
@@ -28,10 +29,15 @@ Vec2 operator *(float s, Vec2 const & v) {
 	Vec2 temp{ v.x*s, v.y*s };
 	return temp;
 };
-Mat2 operator *(Mat2 const & m1, Mat2 const & m2) {
-	Mat2 temp{};
+Vec2 operator*(Mat2 const& m, Vec2 const& v) {
+	Vec2 temp{ m.a*v.x + m.b*v.y,m.c*v.x + m.d*v.y };
+	return temp;
+}
+Vec2 operator*(Vec2 const & v, Mat2 const & m) {
+	Vec2 temp{ m.a*v.x + m.b*v.y,m.c*v.x + m.d*v.y };
 	return temp;
 };
+
 
 TEST_CASE()
 {
@@ -167,11 +173,23 @@ TEST_CASE()
 	Vec2 vec_prove_div_nOneFive_woFive{ operator/(vec_nThree_five,2.0f) };
 	REQUIRE(vec_prove_div_nOneFive_woFive.x == -1.5f); //5/0.5=10
 	REQUIRE(vec_prove_div_nOneFive_woFive.y == 2.5f); //2/0.5=4
+
+	//Mat2 Tests
+	//operator*
+	Mat2 Mat_30_50_25_40{ 30,50,25,40 };
+	Mat2 Mat_2_3_1_1{ 2,3,1,1 };
+	Mat2 Mat_110_140_90_115{ operator*(Mat_30_50_25_40,Mat_2_3_1_1) };
+	REQUIRE(Mat_110_140_90_115.a == 110.0f);
+	REQUIRE(Mat_110_140_90_115.b == 140.0f);
+	REQUIRE(Mat_110_140_90_115.c == 90.0f);
+	REQUIRE(Mat_110_140_90_115.d == 115.0f);
+
+
 }
 
 
 int main(int argc, char *argv[])
 {
-
+	 
     return Catch::Session().run(argc, argv);
 }
