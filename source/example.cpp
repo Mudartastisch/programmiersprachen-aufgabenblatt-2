@@ -15,8 +15,12 @@ int main(int argc, char* argv[])
   Vec2 circle_center(400.0f, 400.0f);
   Color black{ 0.0 };
   Circle test_circle(circle_center, 100.0f, black);
+  Vec2 rec_1{ 350.0f,450.0f };
+  Vec2 rec_2{ 450.f,350.0f };
+  Rectangle rec(rec_1, rec_2, black);
   while (!win.should_close()) {
 	test_circle.draw(win);
+	rec.draw(win);
     if (win.get_key(GLFW_KEY_ESCAPE) == GLFW_PRESS) {
       win.close();
     }

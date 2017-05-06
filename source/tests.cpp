@@ -4,39 +4,8 @@
 #include "vec2.hpp"
 #include "mat2.hpp"
 #include "color.hpp"
-Vec2 operator+(Vec2 const& u, Vec2 const& v) {
-	Vec2 temp{ u.x + v.x,u.y + v.y };
-	return temp;
-};
-Vec2 operator -(Vec2 const & u, Vec2 const & v) {
-	Vec2 temp{ u.x - v.x, u.y - v.y };
-	return temp;
-};
-Vec2 operator *(Vec2 const & v, float s) {
-	Vec2 temp{ v.x*s, v.y*s };
-	return temp;
-};
-Vec2 operator /(Vec2 const & v, float s) {
-	if (s == 0) {
-		std::cerr << "You can't devide by ZERO!";
-		Vec2 err_vec{ 0.0,0.0 };
-		return err_vec;
-	};
-	Vec2 temp{ v.x/s, v.y/s };
-	return temp;
-};
-Vec2 operator *(float s, Vec2 const & v) {
-	Vec2 temp{ v.x*s, v.y*s };
-	return temp;
-};
-Vec2 operator*(Mat2 const& m, Vec2 const& v) {
-	Vec2 temp{ m.a*v.x + m.b*v.y,m.c*v.x + m.d*v.y };
-	return temp;
-}
-Vec2 operator*(Vec2 const & v, Mat2 const & m) {
-	Vec2 temp{ m.a*v.x + m.b*v.y,m.c*v.x + m.d*v.y };
-	return temp;
-};
+#include "window.hpp"
+#include "circle.hpp"
 
 
 
@@ -125,7 +94,7 @@ TEST_CASE()
 	REQUIRE(vec_prove_error_divZero.y == 1.0f);
 
 	//operator+
-	Vec2 vec_prove_add_two_two{ (operator+(vec_one_one, vec_one_one)) };
+	Vec2 vec_prove_add_two_two{operator+(vec_one_one, vec_one_one) };
 	REQUIRE(vec_prove_add_two_two.x == 2.0f); //1+1=2
 	REQUIRE(vec_prove_add_two_two.y == 2.0f); //1+1=2
 
@@ -188,10 +157,11 @@ TEST_CASE()
 	
 
 }
-
-
+  
+/*
 int main(int argc, char *argv[])
 {
 	 
     return Catch::Session().run(argc, argv);
 }
+ */
