@@ -68,4 +68,15 @@ Vec2 & Vec2::operator/=(float s)
 	return *this;
 }
 
+void Vec2::reset()
+{
+	x = 0.0;
+	y = 0.0;
+}
+
+void Vec2::copy_mouse(double x_, double y_) {
+	x = x_;
+	 y = y_;
+}
+
 

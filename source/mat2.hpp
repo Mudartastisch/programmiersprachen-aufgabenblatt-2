@@ -26,5 +26,4 @@ struct Mat2{
 
 };
 Mat2 operator *( Mat2 const & m1 , Mat2 const & m2 );
-Mat2 imitate(Mat2 const& temp);
 #endif // MAT2_HPP

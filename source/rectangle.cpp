@@ -33,4 +33,25 @@ void Rectangle::draw(Window const & canvas) const {
 		canvas.draw_line(max_.x, max_.y, lower_right.x, lower_right.y, 0.0, 0.0, 0.0);
 		canvas.draw_line(max_.x, max_.y, upper_left.x, upper_left.y, 0.0, 0.0, 0.0);
 	}
+void Rectangle::draw(Window const & canvas, Color color_) const {
+	canvas.draw_line(min_.x, min_.y, lower_right.x, lower_right.y, color_.red, color_.green, color_.blue);
+	canvas.draw_line(min_.x, min_.y, upper_left.x, upper_left.y, color_.red, color_.green, color_.blue);
+	canvas.draw_line(max_.x, max_.y, lower_right.x, lower_right.y, color_.red, color_.green, color_.blue);
+	canvas.draw_line(max_.x, max_.y, upper_left.x, upper_left.y, color_.red, color_.green, color_.blue);
+}
+
+bool const & Rectangle::is_inside(Vec2 test) const
+{
+	if ((0<((pow(min_.x-test.x,2))+pow(min_.y-test.y,2)))*((pow(min_.x - lower_right.x, 2) + pow(min_.y - lower_right.y, 2)))<
+		((pow(min_.x - lower_right.x, 2)) + (pow(min_.y - lower_right.y, 2))*((pow(min_.x - lower_right.x, 2) + pow(min_.y - lower_right.y, 2))))
+			&& (
+		  0<(((pow(min_.x - test.x, 2)) + (pow(min_.y - test.y, 2)))*((pow(min_.x - max_.x, 2))+ pow(min_.y - max_.y, 2)))<
+			((pow(min_.x - max_.x, 2)) + pow(min_.y - max_.y, 2)*((pow(min_.x - max_.x, 2)) + pow(min_.y - max_.y, 2)))) 
+			 ) {
+		return true;
+	} 
+	else {
+		return false; 
+	}
+}
 

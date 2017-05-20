@@ -12,6 +12,8 @@ public:
 	Vec2 const& getUpperLeft();
 	float const& circumference()const;
 	void draw(Window const& window) const;
+	void draw(Window const& window, Color color_) const;
+	bool const & Rectangle::is_inside(Vec2 test) const;
 private:
 	Vec2 min_;
 	Vec2 max_;

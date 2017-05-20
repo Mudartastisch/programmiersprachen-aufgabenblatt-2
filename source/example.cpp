@@ -14,13 +14,18 @@ int main(int argc, char* argv[])
   Window win{std::make_pair(800,800)};
   Vec2 circle_center(400.0f, 400.0f);
   Color black{ 0.0 };
+  Color red{ 1.0,0.0,0.0 };
+  Color blue{ 0.0,0.0,1.0 };
   Circle test_circle(circle_center, 100.0f, black);
+  Circle inside_circle(circle_center, 100.0f, blue);
   Vec2 rec_1{ 350.0f,450.0f };
   Vec2 rec_2{ 450.f,350.0f };
   Rectangle rec(rec_1, rec_2, black);
+  Vec2 mouse{};
+  Rectangle inside_rec(rec_1, rec_2, black);
   while (!win.should_close()) {
-	test_circle.draw(win);
-	rec.draw(win);
+	  
+	
     if (win.get_key(GLFW_KEY_ESCAPE) == GLFW_PRESS) {
       win.close();
     }
@@ -59,7 +64,20 @@ int main(int argc, char* argv[])
     std::string text = "mouse position: (" + std::to_string(m.first) + ", " + std::to_string(m.second) + ")";
     win.draw_text(10, 5, 35.0f, text);
 
-	
+	mouse.copy_mouse(m.first,m.second);
+	if (inside_circle.is_inside(mouse)) {
+		inside_circle.draw(win,blue);
+	}
+	else {
+		test_circle.draw(win);
+	}
+	if (inside_rec.is_inside(mouse)) {
+		rec.draw(win, blue);
+	}
+	else {
+		rec.draw(win, red);
+	}
+
 
     win.update();
   }
