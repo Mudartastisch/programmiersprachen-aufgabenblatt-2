@@ -40,4 +40,4 @@ aufgabe7.cpp
   mat2.cpp
   circlecopy.cpp
   color.cpp)
-
+add_executable(aufgabe9 aufgabe9.cpp)
