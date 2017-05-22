@@ -41,3 +41,4 @@ aufgabe7.cpp
   circlecopy.cpp
   color.cpp)
 add_executable(aufgabe9 aufgabe9.cpp)
+add_executable(aufgabe10 aufgabe10.cpp)
